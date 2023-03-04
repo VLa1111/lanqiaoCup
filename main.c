@@ -218,11 +218,7 @@ void LEDINT()
 	stat_int = 0;
 }
 
-void OutPutP0(unsigned char channel, unsigned char dat)
-{
-	InitHC138(channel);
-	P0 = dat;
-}
+
 
 void DisplaySMG_Bit(unsigned char value, unsigned pos)
 {
