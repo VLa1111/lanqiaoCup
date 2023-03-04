@@ -1,0 +1,24 @@
+C51 COMPILER V9.60.0.0   IIC                                                               12/12/2022 21:31:27 PAGE 1   
+
+
+C51 COMPILER V9.60.0.0, COMPILATION OF MODULE IIC
+OBJECT MODULE PLACED IN .\Objects\iic.obj
+COMPILER INVOKED BY: E:\Keil_v5(C51)\C51\BIN\C51.EXE 3-底层驱动代码参考\iic.c OPTIMIZE(8,SPEED) BROWSE INCDIR(.\3-底层驱
+                    -动代码参考) DEBUG OBJECTEXTEND PRINT(.\Listings\iic.lst) TABS(2) OBJECT(.\Objects\iic.obj)
+
+line level    source
+
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =    170    ----
+   CONSTANT SIZE    =   ----    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =   ----    ----
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----       2
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

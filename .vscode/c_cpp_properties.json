@@ -1,0 +1,38 @@
+{
+    "configurations": [
+        {
+            "name": "Target 1",
+            "includePath": [
+                "g:\\LanqiaoCup\\Training\\3-底层驱动代码参考",
+                "E:\\Keil_v5_C51\\C51\\INC",
+                "g:\\LanqiaoCup\\Training"
+            ],
+            "defines": [
+                "__C51__",
+                "__VSCODE_C51__",
+                "reentrant=",
+                "compact=",
+                "small=",
+                "large=",
+                "data=",
+                "idata=",
+                "pdata=",
+                "bdata=",
+                "xdata=",
+                "code=",
+                "bit=char",
+                "sbit=char",
+                "sfr=char",
+                "sfr16=int",
+                "sfr32=int",
+                "interrupt=",
+                "using=",
+                "_at_=",
+                "_priority_=",
+                "_task_="
+            ],
+            "intelliSenseMode": "${default}"
+        }
+    ],
+    "version": 4
+}

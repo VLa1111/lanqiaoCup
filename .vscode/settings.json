@@ -1,0 +1,11 @@
+{
+    "files.associations": {
+        "array": "cpp",
+        "*.tcc": "cpp",
+        "istream": "cpp",
+        "streambuf": "cpp",
+        "reg52.h": "c",
+        "REG52.H": "cpp",
+        "LED跑马灯.C": "cpp"
+    }
+}
