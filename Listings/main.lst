@@ -1,4 +1,4 @@
-C51 COMPILER V9.60.0.0   MAIN                                                              03/03/2023 19:17:16 PAGE 1   
+C51 COMPILER V9.60.0.0   MAIN                                                              03/04/2023 11:13:57 PAGE 1   
 
 
 C51 COMPILER V9.60.0.0, COMPILATION OF MODULE MAIN
@@ -8,877 +8,795 @@ COMPILER INVOKED BY: E:\Keil_v5_C51\C51\BIN\C51.EXE main.c OPTIMIZE(8,SPEED) BRO
 
 line level    source
 
-   1          // #include "reg52.h"
-   2          // //unsigned int DScode[10]={0xc0,0xf9,0xa4,0xb0,0x99,0x92,0x82,0xf8,0x80,0x90};
-   3          // #define Sec_1  120000
-   4          // #define HalfSec_1  60000
+   1          #include "reg52.h"
+   2          //unsigned int DScode[10]={0xc0,0xf9,0xa4,0xb0,0x99,0x92,0x82,0xf8,0x80,0x90};
+   3          #define Sec_1 120000
+   4          #define HalfSec_1 60000
    5          
-   6          // sbit S7 = P3^0;
-   7          // sbit S6 = P3^1;
-   8          // sbit S5 = P3^2;
-   9          // sbit S4 = P3^3;
+   6          sbit S7 = P3^0;
+   7          sbit S6 = P3^1;
+   8          sbit S5 = P3^2;
+   9          sbit S4 = P3^3;
   10          
-  11          // sbit L1 = P0^0;
-  12          // sbit L2 = P0^1;
-  13          // sbit L3 = P0^2;
-  14          // sbit L4 = P0^3;
-  15          // sbit L5 = P0^4;
-  16          // sbit L6 = P0^5;
-  17          // sbit L7 = P0^6;
-  18          // sbit L8 = P0^7;
+  11          sbit L1 = P0^0;
+  12          sbit L2 = P0^1;
+  13          sbit L3 = P0^2;
+  14          sbit L4 = P0^3;
+  15          sbit L5 = P0^4;
+  16          sbit L6 = P0^5;
+  17          sbit L7 = P0^6;
+  18          sbit L8 = P0^7;
   19          
-  20          // sfr P4 = 0xC0;
-  21          // sbit R1 = P3^0;
-  22          // sbit R2 = P3^1;
-  23          // sbit R3 = P3^2;
-  24          // sbit R4 = P3^3;
+  20          sfr P4 = 0xC0;
+  21          sbit R1 = P3^0;
+  22          sbit R2 = P3^1;
+  23          sbit R3 = P3^2;
+  24          sbit R4 = P3^3;
   25          
-  26          // sbit C4 = P3^4;
-  27          // sbit C3 = P3^5;
-  28          // sbit C2 = P4^2;
-  29          // sbit C1 = P4^4;
+  26          sbit C4 = P3^4;
+  27          sbit C3 = P3^5;
+  28          sbit C2 = P4^2;
+  29          sbit C1 = P4^4;
   30          
-  31          // sfr AUXR = 0x8e;
+  31          sfr AUXR = 0x8e;
   32          
-  33          // unsigned char urdat;
-  34          // unsigned char yu = 1;
-  35          // unsigned char stat_k = 0;
-  36          // unsigned char t_m = 0;
-  37          // unsigned char t_s = 0;
-  38          // unsigned char t_005s = 0;
+  33          unsigned char urdat;
+  34          unsigned char yu = 1;
+  35          unsigned char stat_k = 0;
+  36          unsigned char t_m = 0;
+  37          unsigned char t_s = 0;
+  38          unsigned char t_005s = 0;
   39          
-  40          // unsigned char code SMG_duanma[18]=
-  41          //    {0xc0,0xf9,0xa4,0xb0,0x99,0x92,0x82,0xf8,
-  42          //      0x80,0x90,0x88,0x80,0xc6,0xc0,0x86,0x8e,
-  43          //      0xbf,0x7f};
+  40          unsigned char code SMG_duanma[18]=
+  41              {0xc0,0xf9,0xa4,0xb0,0x99,0x92,0x82,0xf8,
+  42               0x80,0x90,0x88,0x80,0xc6,0xc0,0x86,0x8e,
+  43               0xbf,0x7f};
   44          
-  45          // void delay_us(unsigned int t)
-  46          // {
-  47          //  while (t--)
-  48          //  {
-  49          //    /* code */
-  50          //  }
-  51          //  while (t--)
-  52          //  {
-  53          //    /* code */
-  54          //  }
-C51 COMPILER V9.60.0.0   MAIN                                                              03/03/2023 19:17:16 PAGE 2   
+  45          void delay_us(unsigned int t)
+  46          {
+  47   1        while (t--)
+  48   1        {
+  49   2          /* code */
+  50   2        }
+  51   1        while (t--)
+  52   1        {
+  53   2          /* code */
+  54   2        }
+C51 COMPILER V9.60.0.0   MAIN                                                              03/04/2023 11:13:57 PAGE 2   
 
-  55          // }
+  55   1      }
   56          
-  57          // void DelaySMG(unsigned int t)
-  58          // {
-  59          //  while (t--)
-  60          //  {
-  61          //    /* code */
-  62          //  } 
-  63          // }
+  57          void DelaySMG(unsigned int t)
+  58          {
+  59   1        while (t--)
+  60   1        {
+  61   2          /* code */
+  62   2        } 
+  63   1      }
   64          
-  65          // void DelayK(unsigned int t)
-  66          // {
-  67          //  while (t--)
-  68          //  {
-  69          //    /* code */
-  70          //  }
-  71            
-  72          // }
+  65          void DelayK(unsigned int t)
+  66          {
+  67   1        while (t--)
+  68   1        {
+  69   2          /* code */
+  70   2        }
+  71   1        
+  72   1      }
   73          
-  74          // void InitHC138(unsigned char n)
-  75          // {
-  76          //  switch (n)
-  77          //  {
-  78          //  case 4:
-  79          //    /* code */
-  80          //    P2 = (P2 & 0x1f) | 0x80;
-  81          //    break;
-  82          //  case 5:
-  83          //    P2 = (P2 & 0x1f) | 0xa0;
-  84          //    break;
-  85          
-  86          //  case 6:
-  87          //    P2 = (P2 & 0x1f) | 0xc0;
-  88          //    break;;
-  89          
-  90          //  case 7:
-  91          //    P2 = (P2 & 0x1f) | 0xe0;
-  92          //    break;  
-  93          //  }
-  94          // }
-  95          // void SelectHC573(unsigned char channel)
-  96          // {
-  97          //  switch (channel)
-  98          //  {
-  99          //  case 4:
- 100          //    /* code */
- 101          //    P2 = (P2 & 0x1f) | 0x80;
- 102          //    break;
- 103          //  case 5:
- 104          //    P2 = (P2 & 0x1f) | 0xa0;
- 105          //    break;
- 106          //  case 6:
- 107          //    P2 = (P2 & 0x1f) | 0xc0;
- 108          //    break;
- 109          //  case 7:
- 110          //    P2 = (P2 & 0x1f) | 0xe0;
- 111          //    break;
- 112          //  }
- 113          // }
- 114          // void Init_INT0()
- 115          // {
- 116          //  IT0 = 1;  //Íâ²¿ÖÐ¶ÏÏÂ½µÑØ´¥·¢
-C51 COMPILER V9.60.0.0   MAIN                                                              03/03/2023 19:17:16 PAGE 3   
+  74          void SelectHC573(unsigned char channel)
+  75          {
+  76   1        switch (channel)
+  77   1        {
+  78   2        case 4:
+  79   2          /* code */
+  80   2          P2 = (P2 & 0x1f) | 0x80;
+  81   2          break;
+  82   2        case 5:
+  83   2          P2 = (P2 & 0x1f) | 0xa0;
+  84   2          break;
+  85   2        case 6:
+  86   2          P2 = (P2 & 0x1f) | 0xc0;
+  87   2          break;
+  88   2        case 7:
+  89   2          P2 = (P2 & 0x1f) | 0xe0;
+  90   2          break;
+  91   2        }
+  92   1      }
+  93          void Init_INT0()
+  94          {
+  95   1        IT0 = 1;  //ï¿½â²¿ï¿½Ð¶ï¿½ï¿½Â½ï¿½ï¿½Ø´ï¿½ï¿½ï¿½
+  96   1        EX0 = 1;  //ï¿½ï¿½ï¿½ï¿½ï¿½â²¿ï¿½Ð¶ï¿½0
+  97   1        EA  = 1;  //ï¿½ï¿½ï¿½ï¿½ï¿½Ð¶ï¿½ï¿½Ü¿ï¿½ï¿½ï¿½
+  98   1      }
+  99          
+ 100          void Init_Timer0()
+ 101          {
+ 102   1        TMOD = 0x01;
+ 103   1        TH0  = (65535 - 100) / 256;
+ 104   1        TL0  = (65535 - 100) % 256;
+ 105   1      
+ 106   1        ET0  = 1; //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ê±ï¿½ï¿½0ï¿½Ð¶ï¿½
+ 107   1        EA   = 1; //ï¿½ï¿½ï¿½ï¿½È«ï¿½ï¿½ï¿½Ð¶ï¿½
+ 108   1        //TR0  = 1; //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ê±ï¿½ï¿½
+ 109   1      }
+ 110          
+ 111          void SendByte(unsigned char dat);
+ 112          
+ 113          void InitUart()
+ 114          {
+ 115   1        TMOD = 0x20;
+ 116   1        TH1  = 0xfd;
+C51 COMPILER V9.60.0.0   MAIN                                                              03/04/2023 11:13:57 PAGE 3   
 
- 117          //  EX0 = 1;  //¿ªÆôÍâ²¿ÖÐ¶Ï0
- 118          //  EA  = 1;  //¿ªÆôÖÐ¶Ï×Ü¿ª¹Ø
- 119          // }
- 120          
- 121          // void Init_Timer0()
- 122          // {
- 123          //  TMOD = 0x01;
- 124          //  TH0  = (65535 - 100) / 256;
- 125          //  TL0  = (65535 - 100) % 256;
+ 117   1        TL1  = 0xfd;
+ 118   1        TR1  = 1;
+ 119   1      
+ 120   1        SCON = 0x50;
+ 121   1        AUXR = 0x00;
+ 122   1      
+ 123   1        ES   = 1;
+ 124   1        EA   = 1;
+ 125   1      }
  126          
- 127          //  ET0  = 1; //¿ªÆô¶¨Ê±Æ÷0ÖÐ¶Ï
- 128          //  EA   = 1; //¿ªÆôÈ«²¿ÖÐ¶Ï
- 129          //  //TR0  = 1; //Æô¶¯¶¨Ê±Æ÷
- 130          // }
- 131          
- 132          // void SendByte(unsigned char dat);
- 133          
- 134          // void InitUart()
- 135          // {
- 136          //  TMOD = 0x20;
- 137          //  TH1  = 0xfd;
- 138          //  TL1  = 0xfd;
- 139          //  TR1  = 1; 
- 140          // }
- 141          
- 142          // unsigned char count = 0;
- 143          // unsigned char pwm_duty = 0;
- 144          // void ServerTimer0() interrupt 1
- 145          // {
- 146          //  TH0  = (65535 - 100) / 256;
- 147          //  TL0  = (65535 - 100) % 256;
- 148          
- 149          //  // count++;
- 150          //  // if (count % 10 == 0)
- 151          //  // {
- 152          //  //  L1 = ~L1;
- 153          //  // }
- 154          //  // if (count == 100)
- 155          //  // {
- 156          //  //  L8 = ~L8;
- 157          //  //  count = 0;
- 158          //  // }
- 159          
- 160          //  // t_005s++;
- 161          //  // if(t_005s == 20)
- 162          //  // {
- 163          //  //  t_s++;
- 164          //  //  t_005s = 0;
- 165          //  //  if (t_s == 60)
- 166          //  //  {
- 167          //  //    t_m++;
- 168          //  //    t_s = 0;
- 169          //  //  }
- 170          //  //  if (t_m == 99)
- 171          //  //  {
- 172          //  //    t_m = 0;
- 173          //  //  }
- 174          //  // }
- 175          
- 176          //  count ++;
- 177          //  if (count == pwm_duty)
- 178          //  {
-C51 COMPILER V9.60.0.0   MAIN                                                              03/03/2023 19:17:16 PAGE 4   
+ 127          
+ 128          unsigned char command = 0x00;
+ 129          void ServiceUart() interrupt 4
+ 130          {
+ 131   1        if (RI == 1)
+ 132   1        {
+ 133   2          command = SBUF;
+ 134   2          RI = 0;
+ 135   2        }
+ 136   1      }
+ 137          
+ 138          void SendByte(unsigned char dat)
+ 139          {
+ 140   1        SBUF = dat;
+ 141   1        while(TI == 0);
+ 142   1        TI = 0;
+ 143   1      }
+ 144          
+ 145          void SendString(unsigned char *str)
+ 146          {
+ 147   1        while (*str != '\0')
+ 148   1        {
+ 149   2          /* code */
+ 150   2          SendByte(*str++);
+ 151   2        }
+ 152   1        
+ 153   1      }
+ 154          
+ 155          void Working()
+ 156          {
+ 157   1        if(command != 0x00)
+ 158   1        {
+ 159   2          switch(command & 0xf0)
+ 160   2          {
+ 161   3            case 0xa0:
+ 162   3              P0 = (P0 | 0x0f) & (~command | 0xf0);
+ 163   3              command = 0x00;
+ 164   3            break;
+ 165   3            
+ 166   3            case 0xb0:
+ 167   3              P0 = (P0 | 0xf0) & ((~command << 4)| 0x0f);
+ 168   3              command = 0x00;
+ 169   3            break;
+ 170   3            
+ 171   3            case 0xc0:
+ 172   3              SendString("The System is Running...\r\n");
+ 173   3              command = 0x00;
+ 174   3            break;
+ 175   3          }
+ 176   2        }
+ 177   1      }
+ 178          
+C51 COMPILER V9.60.0.0   MAIN                                                              03/04/2023 11:13:57 PAGE 4   
 
- 179          //    L1 = 1;
- 180          //  }
- 181          //  else if (count == 100)
- 182          //  {
- 183          //    L1 = 0;
- 184          //    count = 0;
- 185          //  }
- 186          // }
- 187          
- 188          // void LED1_Working()
- 189          // {
- 190          //  SelectHC573(4);
- 191          //  L1 = 0;
- 192          //  DelayK(60000);
- 193          //  L1 = 1;
- 194          //  DelayK(60000);
- 195          // }
- 196          
- 197          // unsigned char stat_int = 0;
- 198          // void ServerINT0() interrupt 0
- 199          // {
- 200          //  stat_int = 1;
- 201          // } 
- 202          
- 203          // void LEDINT()
- 204          // {
- 205          //  if (stat_int == 1)
- 206          //  {
- 207          //    L8 = 0;
- 208          //    DelayK(60000);
- 209          //    DelayK(60000);
- 210          //    DelayK(60000);
- 211          //    DelayK(60000);
- 212          //    DelayK(60000);
- 213          //    DelayK(60000);
- 214          //    L8 = 1;
- 215          //  }
- 216          //  stat_int = 0;
- 217          // }
- 218          
- 219          // void OutPutP0(unsigned char channel, unsigned char dat)
- 220          // {
- 221          //  InitHC138(channel);
- 222          //  P0 = dat;
- 223          // }
+ 179          unsigned char count = 0;
+ 180          unsigned char pwm_duty = 0;
+ 181          void ServerTimer0() interrupt 1
+ 182          {
+ 183   1        TH0  = (65535 - 100) / 256;
+ 184   1        TL0  = (65535 - 100) % 256;
+ 185   1      
+ 186   1        // count++;
+ 187   1        // if (count % 10 == 0)
+ 188   1        // {
+ 189   1        //  L1 = ~L1;
+ 190   1        // }
+ 191   1        // if (count == 100)
+ 192   1        // {
+ 193   1        //  L8 = ~L8;
+ 194   1        //  count = 0;
+ 195   1        // }
+ 196   1      
+ 197   1        // t_005s++;
+ 198   1        // if(t_005s == 20)
+ 199   1        // {
+ 200   1        //  t_s++;
+ 201   1        //  t_005s = 0;
+ 202   1        //  if (t_s == 60)
+ 203   1        //  {
+ 204   1        //    t_m++;
+ 205   1        //    t_s = 0;
+ 206   1        //  }
+ 207   1        //  if (t_m == 99)
+ 208   1        //  {
+ 209   1        //    t_m = 0;
+ 210   1        //  }
+ 211   1        // }
+ 212   1      
+ 213   1        count ++;
+ 214   1        if (count == pwm_duty)
+ 215   1        {
+ 216   2          L1 = 1;
+ 217   2        }
+ 218   1        else if (count == 100)
+ 219   1        {
+ 220   2          L1 = 0;
+ 221   2          count = 0;
+ 222   2        }
+ 223   1      }
  224          
- 225          // void DisplaySMG_Bit(unsigned char value, unsigned pos)
- 226          // {
- 227          //  P0 = 0xff;
- 228          //  SelectHC573(6);
- 229          //  P0 = 0x01 << pos;
- 230          //  SelectHC573(7);
- 231          //  P0 = value;
- 232          // }
+ 225          void LED1_Working()
+ 226          {
+ 227   1        SelectHC573(4);
+ 228   1        L1 = 0;
+ 229   1        DelayK(60000);
+ 230   1        L1 = 1;
+ 231   1        DelayK(60000);
+ 232   1      }
  233          
- 234          // void ShowSMG_Bit(unsigned char dat, unsigned pos)
- 235          // {
- 236          //  InitHC138(6);
- 237          //  P0 = 0x01 << pos;   //ÊýÂë¹ÜÎ»ÖÃ 
- 238          //  InitHC138(7);
- 239          //  P0 = dat;       //ÊýÂë¹ÜÄÚÈÝ
- 240          // }
-C51 COMPILER V9.60.0.0   MAIN                                                              03/03/2023 19:17:16 PAGE 5   
+ 234          unsigned char stat_int = 0;
+ 235          void ServerINT0() interrupt 0
+ 236          {
+ 237   1        stat_int = 1;
+ 238   1      } 
+ 239          
+ 240          void LEDINT()
+C51 COMPILER V9.60.0.0   MAIN                                                              03/04/2023 11:13:57 PAGE 5   
 
- 241          
- 242          // void DisplayKeyNum(unsigned char value)
- 243          // {
- 244          //  P0 = 0xff;
- 245          //  SelectHC573(6);
- 246          //  P0 = 0x01;
- 247          //  SelectHC573(7);
- 248          //  P0 = value;
- 249          // }
- 250          
- 251          // void SMG_Static()
- 252          // {
- 253          //  unsigned char i,j;
- 254          //  for (i = 0; i<8; i++)
- 255          //  {
- 256          //    for (j = 0; j < 10; j++)
- 257          //    {
- 258          //      ShowSMG_Bit(SMG_duanma[i],i);
- 259          //      delay_us(HalfSec_1);
- 260          //    }
- 261          //  }
- 262          //  for (j = 0; j < 16; j++)
- 263          //  {
- 264          //    InitHC138(6);
- 265          //    P0 = 0xff;
- 266          //    InitHC138(7);
- 267          //    P0 = SMG_duanma[j];
- 268          //    delay_us(Sec_1);
- 269          //  }
- 270          // }
- 271          
- 272          // void Display_Dynamic()
- 273          // {
- 274          //  DisplaySMG_Bit(SMG_duanma[2],0);
- 275          //  DelaySMG(500);
- 276          //  DisplaySMG_Bit(SMG_duanma[0],1);
- 277          //  DelaySMG(500);
- 278          //  DisplaySMG_Bit(SMG_duanma[2],2);
- 279          //  DelaySMG(500);  
- 280          //  DisplaySMG_Bit(SMG_duanma[2],3);
- 281          //  DelaySMG(500);
- 282          
- 283          //  DisplaySMG_Bit(SMG_duanma[16],4);
- 284          //  DelaySMG(500);
- 285          //  DisplaySMG_Bit(SMG_duanma[16],5);
- 286          //  DelaySMG(500);
+ 241          {
+ 242   1        if (stat_int == 1)
+ 243   1        {
+ 244   2          L8 = 0;
+ 245   2          DelayK(60000);
+ 246   2          DelayK(60000);
+ 247   2          DelayK(60000);
+ 248   2          DelayK(60000);
+ 249   2          DelayK(60000);
+ 250   2          DelayK(60000);
+ 251   2          L8 = 1;
+ 252   2        }
+ 253   1        stat_int = 0;
+ 254   1      }
+ 255          
+ 256          void OutPutP0(unsigned char channel, unsigned char dat)
+ 257          {
+ 258   1        //InitHC138(channel);
+ 259   1        P0 = dat;
+ 260   1      }
+*** WARNING C280 IN LINE 256 OF main.c: 'channel': unreferenced local variable
+ 261          
+ 262          void DisplaySMG_Bit(unsigned char value, unsigned pos)
+ 263          {
+ 264   1        P0 = 0xff;
+ 265   1        SelectHC573(6);
+ 266   1        P0 = 0x01 << pos;
+ 267   1        SelectHC573(7);
+ 268   1        P0 = value;
+ 269   1      }
+ 270          
+ 271          // void ShowSMG_Bit(unsigned char dat, unsigned pos)
+ 272          // {
+ 273          //  InitHC138(6);
+ 274          //  P0 = 0x01 << pos;   //ï¿½ï¿½ï¿½ï¿½ï¿½Î»ï¿½ï¿?? 
+ 275          //  InitHC138(7);
+ 276          //  P0 = dat;       //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿??
+ 277          // }
+ 278          
+ 279          void DisplayKeyNum(unsigned char value)
+ 280          {
+ 281   1        P0 = 0xff;
+ 282   1        SelectHC573(6);
+ 283   1        P0 = 0x01;
+ 284   1        SelectHC573(7);
+ 285   1        P0 = value;
+ 286   1      }
  287          
- 288          //  DisplaySMG_Bit(SMG_duanma[yu/10],6);
- 289          //  DelaySMG(500);
- 290          //  DisplaySMG_Bit(SMG_duanma[yu%10],7);
- 291          //  DelaySMG(500);
- 292          // }
- 293          
- 294          // void ScanKeys_Alone_1()
- 295          // {
- 296          //  if (S7 == 0)
- 297          //  {
- 298          //    DelayK(100);
- 299          //    if (S7 == 0)
- 300          //    {
- 301          //      L1 = 0;
- 302          //      while (S7 == 0);
-C51 COMPILER V9.60.0.0   MAIN                                                              03/03/2023 19:17:16 PAGE 6   
+ 288          // void SMG_Static()
+ 289          // {
+ 290          //  unsigned char i,j;
+ 291          //  for (i = 0; i<8; i++)
+ 292          //  {
+ 293          //    for (j = 0; j < 10; j++)
+ 294          //    {
+ 295          //      ShowSMG_Bit(SMG_duanma[i],i);
+ 296          //      delay_us(HalfSec_1);
+ 297          //    }
+ 298          //  }
+ 299          //  for (j = 0; j < 16; j++)
+ 300          //  {
+ 301          //    InitHC138(6);
+C51 COMPILER V9.60.0.0   MAIN                                                              03/04/2023 11:13:57 PAGE 6   
 
- 303          //      L1 = 1;
- 304          //    }
- 305          //  }
- 306          
- 307          //  if (S6 == 0)
- 308          //  {
- 309          //    DelayK(100);
- 310          //    if (S6 == 0)
- 311          //    {
- 312          //      L2 = 0;
- 313          //      while (S6 == 0);
- 314          //      L2 = 1;
- 315          //    }
- 316          //  }
- 317          
- 318          //  if (S5 == 0)
- 319          //  {
- 320          //    DelayK(100);
- 321          //    if (S5 == 0)
- 322          //    {
- 323          //      L3 = 0;
- 324          //      while (S5 == 0);
- 325          //      L3 = 1;   
- 326          //    }
- 327              
- 328          //  }
- 329          
- 330          //  if (S4 == 0)
- 331          //  {
- 332          //    DelayK(100);
- 333          //    if (S4 == 0)
- 334          //    {
- 335          //      L4 = 0;
- 336          //      while (S4 == 0);
- 337          //      L4 = 1;   
- 338          //    }
- 339          //  }
- 340          // }
- 341          
- 342          // void ScanKeys_Alone_2()
- 343          // {
- 344          //  if (S7 == 0)
- 345          //  {
- 346          //    DelayK(100);
- 347          //    if (S7 == 0)
- 348          //    {
- 349          //      if (stat_k == 0)
- 350          //      {
- 351          //        L1 = 0;
- 352          //        stat_k = 1;
- 353          //      }
- 354          //      else if (stat_k == 1)
- 355          //      {
- 356          //        L1 = 1;
- 357          //        stat_k = 0;
- 358          //      }
- 359          //      while (S7 == 0);  
- 360          //    } 
- 361          //  }
- 362          //  if (S6 == 0)
- 363          //  {
- 364          //    DelayK(100);
-C51 COMPILER V9.60.0.0   MAIN                                                              03/03/2023 19:17:16 PAGE 7   
+ 302          //    P0 = 0xff;
+ 303          //    InitHC138(7);
+ 304          //    P0 = SMG_duanma[j];
+ 305          //    delay_us(Sec_1);
+ 306          //  }
+ 307          // }
+ 308          
+ 309          void Display_Dynamic()
+ 310          {
+ 311   1        DisplaySMG_Bit(SMG_duanma[2],0);
+ 312   1        DelaySMG(500);
+ 313   1        DisplaySMG_Bit(SMG_duanma[0],1);
+ 314   1        DelaySMG(500);
+ 315   1        DisplaySMG_Bit(SMG_duanma[2],2);
+ 316   1        DelaySMG(500);  
+ 317   1        DisplaySMG_Bit(SMG_duanma[2],3);
+ 318   1        DelaySMG(500);
+ 319   1      
+ 320   1        DisplaySMG_Bit(SMG_duanma[16],4);
+ 321   1        DelaySMG(500);
+ 322   1        DisplaySMG_Bit(SMG_duanma[16],5);
+ 323   1        DelaySMG(500);
+ 324   1      
+ 325   1        DisplaySMG_Bit(SMG_duanma[yu/10],6);
+ 326   1        DelaySMG(500);
+ 327   1        DisplaySMG_Bit(SMG_duanma[yu%10],7);
+ 328   1        DelaySMG(500);
+ 329   1      }
+ 330          
+ 331          void ScanKeys_Alone_1()
+ 332          {
+ 333   1        if (S7 == 0)
+ 334   1        {
+ 335   2          DelayK(100);
+ 336   2          if (S7 == 0)
+ 337   2          {
+ 338   3            L1 = 0;
+ 339   3            while (S7 == 0);
+ 340   3            L1 = 1;
+ 341   3          }
+ 342   2        }
+ 343   1      
+ 344   1        if (S6 == 0)
+ 345   1        {
+ 346   2          DelayK(100);
+ 347   2          if (S6 == 0)
+ 348   2          {
+ 349   3            L2 = 0;
+ 350   3            while (S6 == 0);
+ 351   3            L2 = 1;
+ 352   3          }
+ 353   2        }
+ 354   1      
+ 355   1        if (S5 == 0)
+ 356   1        {
+ 357   2          DelayK(100);
+ 358   2          if (S5 == 0)
+ 359   2          {
+ 360   3            L3 = 0;
+ 361   3            while (S5 == 0);
+ 362   3            L3 = 1;   
+ 363   3          }
+C51 COMPILER V9.60.0.0   MAIN                                                              03/04/2023 11:13:57 PAGE 7   
 
- 365          //    if (S6 == 0)
- 366          //    {
- 367          //      if (stat_k == 0)
- 368          //      {
- 369          //        L2 = 0;
- 370          //        stat_k = 2;
- 371          //      }
- 372          //      else if (stat_k == 2)
- 373          //      {
- 374          //        L2 = 1;
- 375          //        stat_k = 0;
- 376          //      }
- 377          //      while (S6 == 0);    
- 378          //    }
- 379          //  }
- 380          //  if (S5 == 0)
- 381          //  {
- 382          //    DelayK(100);
- 383          //    if (S5 == 0)
- 384          //    {
- 385          //      if (stat_k == 1)
- 386          //      {
- 387          //        L3 = 0;
- 388          //        while (S5 == 0);
- 389          //        L3 = 1;
- 390          //      }
- 391          //      else if (stat_k == 2)
- 392          //      {
- 393          //        L5 = 0;
- 394          //        while (S5 == 0);
- 395          //        L5 = 1;
- 396          //      }
- 397          //    }
- 398          //  }
- 399          //  if (S4 == 0)
- 400          //  {
- 401          //    DelayK(100);
- 402          //    if (S4 == 0)
- 403          //    {
- 404          //      if (stat_k == 1)
- 405          //      {
- 406          //        L4 = 0;
- 407          //        while (S4 == 0);
- 408          //        L4 = 1;
- 409          //      }
- 410          //      else if (stat_k == 2)
- 411          //      {
- 412          //        L6 = 0;
- 413          //        while (S4 == 0);
- 414          //        L6 = 1;     
- 415          //      }
- 416          //    }
- 417          //  }
- 418          // }
- 419          
- 420          // void Delay(unsigned int t)
- 421          // {
- 422          //  while (t--)
- 423          //  {
- 424          //    /* code */
- 425          //    Display_Dynamic();
- 426          //  }
-C51 COMPILER V9.60.0.0   MAIN                                                              03/03/2023 19:17:16 PAGE 8   
+ 364   2          
+ 365   2        }
+ 366   1      
+ 367   1        if (S4 == 0)
+ 368   1        {
+ 369   2          DelayK(100);
+ 370   2          if (S4 == 0)
+ 371   2          {
+ 372   3            L4 = 0;
+ 373   3            while (S4 == 0);
+ 374   3            L4 = 1;   
+ 375   3          }
+ 376   2        }
+ 377   1      }
+ 378          
+ 379          void ScanKeys_Alone_2()
+ 380          {
+ 381   1        if (S7 == 0)
+ 382   1        {
+ 383   2          DelayK(100);
+ 384   2          if (S7 == 0)
+ 385   2          {
+ 386   3            if (stat_k == 0)
+ 387   3            {
+ 388   4              L1 = 0;
+ 389   4              stat_k = 1;
+ 390   4            }
+ 391   3            else if (stat_k == 1)
+ 392   3            {
+ 393   4              L1 = 1;
+ 394   4              stat_k = 0;
+ 395   4            }
+ 396   3            while (S7 == 0);  
+ 397   3          } 
+ 398   2        }
+ 399   1        if (S6 == 0)
+ 400   1        {
+ 401   2          DelayK(100);
+ 402   2          if (S6 == 0)
+ 403   2          {
+ 404   3            if (stat_k == 0)
+ 405   3            {
+ 406   4              L2 = 0;
+ 407   4              stat_k = 2;
+ 408   4            }
+ 409   3            else if (stat_k == 2)
+ 410   3            {
+ 411   4              L2 = 1;
+ 412   4              stat_k = 0;
+ 413   4            }
+ 414   3            while (S6 == 0);    
+ 415   3          }
+ 416   2        }
+ 417   1        if (S5 == 0)
+ 418   1        {
+ 419   2          DelayK(100);
+ 420   2          if (S5 == 0)
+ 421   2          {
+ 422   3            if (stat_k == 1)
+ 423   3            {
+ 424   4              L3 = 0;
+ 425   4              while (S5 == 0);
+C51 COMPILER V9.60.0.0   MAIN                                                              03/04/2023 11:13:57 PAGE 8   
 
- 427            
- 428          // }
- 429          
- 430          // void LED_Running(void)
- 431          // {
- 432          //  unsigned char i;
- 433          
- 434          //  for (i = 0; i < 3; i++)
- 435          //  {
- 436          //    OutPutP0(4, 0x00);
- 437          //    //P0 = 0x00;
- 438          //    delay_us(Sec_1);
- 439          //    //P0 = 0xff;
- 440          //    OutPutP0(4,0xff);
- 441          //    delay_us(Sec_1);
- 442          //  }
- 443          
- 444          //  for (i = 1; i <= 8; i++)
- 445          //  {
- 446          //    OutPutP0(4, (0xff << i));
- 447          //    delay_us(HalfSec_1);
- 448          //  }
- 449          
- 450          //  OutPutP0(5, 0x10);
- 451          //  delay_us(Sec_1);
- 452          //  OutPutP0(5, 0x00);
- 453          
- 454          //  InitHC138(4);
- 455          //  for (i = 1; i <= 8; i++)
- 456          //  {
- 457          //    //P0 = ~(0xff << i);
- 458          //    OutPutP0(4, ~(0xff << i));
- 459          //    delay_us(HalfSec_1);
- 460          //  }
- 461          
- 462          //  OutPutP0(5, 0x40);
- 463          //  delay_us(Sec_1);
- 464          //  OutPutP0(5, 0x00);
- 465          // }
+ 426   4              L3 = 1;
+ 427   4            }
+ 428   3            else if (stat_k == 2)
+ 429   3            {
+ 430   4              L5 = 0;
+ 431   4              while (S5 == 0);
+ 432   4              L5 = 1;
+ 433   4            }
+ 434   3          }
+ 435   2        }
+ 436   1        if (S4 == 0)
+ 437   1        {
+ 438   2          DelayK(100);
+ 439   2          if (S4 == 0)
+ 440   2          {
+ 441   3            if (stat_k == 1)
+ 442   3            {
+ 443   4              L4 = 0;
+ 444   4              while (S4 == 0);
+ 445   4              L4 = 1;
+ 446   4            }
+ 447   3            else if (stat_k == 2)
+ 448   3            {
+ 449   4              L6 = 0;
+ 450   4              while (S4 == 0);
+ 451   4              L6 = 1;     
+ 452   4            }
+ 453   3          }
+ 454   2        }
+ 455   1      }
+ 456          
+ 457          void Delay(unsigned int t)
+ 458          {
+ 459   1        while (t--)
+ 460   1        {
+ 461   2          /* code */
+ 462   2          Display_Dynamic();
+ 463   2        }
+ 464   1        
+ 465   1      }
  466          
- 467          // unsigned char key_num;
- 468          // void ScanKeysMulti()
- 469          // {
- 470          //  R1 = 0;
- 471          //  R2 = R3 = R4 = 1;
- 472          //  C1 = C2 = C3 = C4 = 1;
- 473          //  if (C1 == 0)
- 474          //  {
- 475          //    while(C1 == 0)
- 476          //    key_num = 0;
- 477          //    DisplayKeyNum(SMG_duanma[key_num]);
- 478          //  }
- 479          //  else if(C2 == 0)
- 480          //  {
- 481          //    while (C2 == 0)
- 482          //    key_num = 1;
- 483          //    DisplayKeyNum(SMG_duanma[key_num]);
- 484          //  }
- 485          //  else if(C3 == 0)
- 486          //  {
- 487          //    while(C3 == 0)
- 488          //    key_num = 2;
-C51 COMPILER V9.60.0.0   MAIN                                                              03/03/2023 19:17:16 PAGE 9   
+ 467          void LED_Running(void)
+ 468          {
+ 469   1        unsigned char i;
+ 470   1      
+ 471   1        for (i = 0; i < 3; i++)
+ 472   1        {
+ 473   2          OutPutP0(4, 0x00);
+ 474   2          //P0 = 0x00;
+ 475   2          delay_us(Sec_1);
+ 476   2          //P0 = 0xff;
+ 477   2          OutPutP0(4,0xff);
+ 478   2          delay_us(Sec_1);
+ 479   2        }
+ 480   1      
+ 481   1        for (i = 1; i <= 8; i++)
+ 482   1        {
+ 483   2          OutPutP0(4, (0xff << i));
+ 484   2          delay_us(HalfSec_1);
+ 485   2        }
+ 486   1      
+ 487   1        OutPutP0(5, 0x10);
+C51 COMPILER V9.60.0.0   MAIN                                                              03/04/2023 11:13:57 PAGE 9   
 
- 489          //    DisplayKeyNum(SMG_duanma[key_num]);
- 490          //  }
- 491          //  else if(C4 == 0)
- 492          //  {
- 493          //    while(C4 == 0)
- 494          //    key_num = 3;
- 495          //    DisplayKeyNum(SMG_duanma[key_num]);
- 496          //  }
- 497          
- 498          //  R2 = 0;
- 499          //  R1 = R3 = R4 = 1;
- 500          //  C1 = C2 = C3 = C4 = 1;
- 501          //  if (C1 == 0)
- 502          //  {
- 503          //    while(C1 == 0)
- 504          //    key_num = 4;
- 505          //    DisplayKeyNum(SMG_duanma[key_num]);
- 506          //  }
- 507          //  else if (C2 == 0)
- 508          //  {
- 509          //    while(C2 == 0);
- 510          //    key_num = 5;
- 511          //    DisplayKeyNum(SMG_duanma[key_num]);
- 512          //  }
- 513          //  else if (C3 == 0)
- 514          //  {
- 515          //    while(C3 == 0);
- 516          //    key_num = 6;
- 517          //    DisplayKeyNum(SMG_duanma[key_num]);
- 518          //  }
- 519          //  else if (C4 == 0)
- 520          //  {
- 521          //    while(C4 == 0);
- 522          //    key_num = 7;
- 523          //    DisplayKeyNum(SMG_duanma[key_num]);
- 524          //  }
- 525          
- 526          //  R3 = 0;
- 527          //  R2 = R1 = R4 = 1;
- 528          //  C1 = C2 = C3 = C4 =1;
- 529          //  if(C1 == 0)
- 530          //  {
- 531          //    while(C1 == 0);
- 532          //    key_num = 8;
- 533          //    DisplayKeyNum(SMG_duanma[key_num]);
- 534          //  }
- 535          //  else if(C2 == 0)
- 536          //  {
- 537          //    while(C2 == 0);
- 538          //    key_num = 9;
- 539          //    DisplayKeyNum(SMG_duanma[key_num]);
- 540          //  }
- 541          //  else if(C3 == 0)
- 542          //  {
- 543          //    while(C3 == 0);
- 544          //    key_num = 10;
- 545          //    DisplayKeyNum(SMG_duanma[key_num]);
- 546          //  }
- 547          //  else if(C4 == 0)
- 548          //  {
- 549          //    while(C4 == 0);
- 550          //    key_num = 11;
-C51 COMPILER V9.60.0.0   MAIN                                                              03/03/2023 19:17:16 PAGE 10  
+ 488   1        delay_us(Sec_1);
+ 489   1        OutPutP0(5, 0x00);
+ 490   1      
+ 491   1        //InitHC138(4);
+ 492   1        for (i = 1; i <= 8; i++)
+ 493   1        {
+ 494   2          //P0 = ~(0xff << i);
+ 495   2          OutPutP0(4, ~(0xff << i));
+ 496   2          delay_us(HalfSec_1);
+ 497   2        }
+ 498   1      
+ 499   1        OutPutP0(5, 0x40);
+ 500   1        delay_us(Sec_1);
+ 501   1        OutPutP0(5, 0x00);
+ 502   1      }
+ 503          
+ 504          unsigned char key_num;
+ 505          void ScanKeysMulti()
+ 506          {
+ 507   1        R1 = 0;
+ 508   1        R2 = R3 = R4 = 1;
+ 509   1        C1 = C2 = C3 = C4 = 1;
+ 510   1        if (C1 == 0)
+ 511   1        {
+ 512   2          while(C1 == 0)
+ 513   2          key_num = 0;
+ 514   2          DisplayKeyNum(SMG_duanma[key_num]);
+ 515   2        }
+ 516   1        else if(C2 == 0)
+ 517   1        {
+ 518   2          while (C2 == 0)
+ 519   2          key_num = 1;
+ 520   2          DisplayKeyNum(SMG_duanma[key_num]);
+ 521   2        }
+ 522   1        else if(C3 == 0)
+ 523   1        {
+ 524   2          while(C3 == 0)
+ 525   2          key_num = 2;
+ 526   2          DisplayKeyNum(SMG_duanma[key_num]);
+ 527   2        }
+ 528   1        else if(C4 == 0)
+ 529   1        {
+ 530   2          while(C4 == 0)
+ 531   2          key_num = 3;
+ 532   2          DisplayKeyNum(SMG_duanma[key_num]);
+ 533   2        }
+ 534   1      
+ 535   1        R2 = 0;
+ 536   1        R1 = R3 = R4 = 1;
+ 537   1        C1 = C2 = C3 = C4 = 1;
+ 538   1        if (C1 == 0)
+ 539   1        {
+ 540   2          while(C1 == 0)
+ 541   2          key_num = 4;
+ 542   2          DisplayKeyNum(SMG_duanma[key_num]);
+ 543   2        }
+ 544   1        else if (C2 == 0)
+ 545   1        {
+ 546   2          while(C2 == 0);
+ 547   2          key_num = 5;
+ 548   2          DisplayKeyNum(SMG_duanma[key_num]);
+ 549   2        }
+C51 COMPILER V9.60.0.0   MAIN                                                              03/04/2023 11:13:57 PAGE 10  
 
- 551          //    DisplayKeyNum(SMG_duanma[key_num]);
- 552          //  }
- 553            
- 554          //  R4 = 0;
- 555          //  R2 = R3 = R1 = 1;
- 556          //  C1 = C2 = C3 = C4 =1;
- 557          //  if(C1 == 0)
- 558          //  {
- 559          //    while(C1 == 0);
- 560          //    key_num = 12;
- 561          //    DisplayKeyNum(SMG_duanma[key_num]);
- 562          //  }
- 563          //  else if(C2 == 0)
- 564          //  {
- 565          //    while(C2 == 0);
- 566          //    key_num = 13;
- 567          //    DisplayKeyNum(SMG_duanma[key_num]);
- 568          //  }
- 569          //  else if(C3 == 0)
- 570          //  {
- 571          //    while(C3 == 0);
- 572          //    key_num = 14;
- 573          //    DisplayKeyNum(SMG_duanma[key_num]);
- 574          //  }
- 575          //  else if(C4 == 0)
- 576          //  {
- 577          //    while(C4 == 0);
- 578          //    key_num = 15;
- 579          //    DisplayKeyNum(SMG_duanma[key_num]);
- 580          //  }
- 581          // }
- 582          
- 583          // void InitSystem()
- 584          // {
- 585          //  OutPutP0(5,0x00);
- 586          //  OutPutP0(5, 0x10);
- 587          //  delay_us(Sec_1);
- 588          //  OutPutP0(5, 0x00);
- 589          
- 590          //  OutPutP0(5, 0x40);
- 591          //  delay_us(Sec_1);
- 592          //  OutPutP0(5, 0x00);
- 593          
- 594          //  OutPutP0(4, 0xff);
- 595          // }
- 596          
- 597          // void DisplayTime()
- 598          // {
- 599          //  DisplaySMG_Bit(SMG_duanma[t_005s%10],7);
- 600          //  DelaySMG(500);
- 601          //  DisplaySMG_Bit(SMG_duanma[t_005s/10],6);
- 602          //  DelaySMG(500);
- 603          //  DisplaySMG_Bit(SMG_duanma[16],5);
- 604          //  DelaySMG(500);
- 605          
- 606          //  DisplaySMG_Bit(SMG_duanma[t_s%10],4);
- 607          //  DelaySMG(500);
- 608          //  DisplaySMG_Bit(SMG_duanma[t_s/10],3);
- 609          //  DelaySMG(500);
- 610          //  DisplaySMG_Bit(SMG_duanma[16],2);
- 611          //  DelaySMG(500);
- 612          
-C51 COMPILER V9.60.0.0   MAIN                                                              03/03/2023 19:17:16 PAGE 11  
+ 550   1        else if (C3 == 0)
+ 551   1        {
+ 552   2          while(C3 == 0);
+ 553   2          key_num = 6;
+ 554   2          DisplayKeyNum(SMG_duanma[key_num]);
+ 555   2        }
+ 556   1        else if (C4 == 0)
+ 557   1        {
+ 558   2          while(C4 == 0);
+ 559   2          key_num = 7;
+ 560   2          DisplayKeyNum(SMG_duanma[key_num]);
+ 561   2        }
+ 562   1      
+ 563   1        R3 = 0;
+ 564   1        R2 = R1 = R4 = 1;
+ 565   1        C1 = C2 = C3 = C4 =1;
+ 566   1        if(C1 == 0)
+ 567   1        {
+ 568   2          while(C1 == 0);
+ 569   2          key_num = 8;
+ 570   2          DisplayKeyNum(SMG_duanma[key_num]);
+ 571   2        }
+ 572   1        else if(C2 == 0)
+ 573   1        {
+ 574   2          while(C2 == 0);
+ 575   2          key_num = 9;
+ 576   2          DisplayKeyNum(SMG_duanma[key_num]);
+ 577   2        }
+ 578   1        else if(C3 == 0)
+ 579   1        {
+ 580   2          while(C3 == 0);
+ 581   2          key_num = 10;
+ 582   2          DisplayKeyNum(SMG_duanma[key_num]);
+ 583   2        }
+ 584   1        else if(C4 == 0)
+ 585   1        {
+ 586   2          while(C4 == 0);
+ 587   2          key_num = 11;
+ 588   2          DisplayKeyNum(SMG_duanma[key_num]);
+ 589   2        }
+ 590   1        
+ 591   1        R4 = 0;
+ 592   1        R2 = R3 = R1 = 1;
+ 593   1        C1 = C2 = C3 = C4 =1;
+ 594   1        if(C1 == 0)
+ 595   1        {
+ 596   2          while(C1 == 0);
+ 597   2          key_num = 12;
+ 598   2          DisplayKeyNum(SMG_duanma[key_num]);
+ 599   2        }
+ 600   1        else if(C2 == 0)
+ 601   1        {
+ 602   2          while(C2 == 0);
+ 603   2          key_num = 13;
+ 604   2          DisplayKeyNum(SMG_duanma[key_num]);
+ 605   2        }
+ 606   1        else if(C3 == 0)
+ 607   1        {
+ 608   2          while(C3 == 0);
+ 609   2          key_num = 14;
+ 610   2          DisplayKeyNum(SMG_duanma[key_num]);
+ 611   2        }
+C51 COMPILER V9.60.0.0   MAIN                                                              03/04/2023 11:13:57 PAGE 11  
 
- 613          //  DisplaySMG_Bit(SMG_duanma[t_m],1);
- 614          //  DelaySMG(500);
- 615          //  DisplaySMG_Bit(SMG_duanma[t_m/10],0);
- 616          //  DelaySMG(500);
- 617          // }
- 618          
+ 612   1        else if(C4 == 0)
+ 613   1        {
+ 614   2          while(C4 == 0);
+ 615   2          key_num = 15;
+ 616   2          DisplayKeyNum(SMG_duanma[key_num]);
+ 617   2        }
+ 618   1      }
  619          
- 620          // unsigned char stat = 0;
- 621          // void ScanKeys()
- 622          // {
- 623          //  // if (S4 == 0)
- 624          //  // {
- 625          //  //  DelayK(100);
- 626          //  //  if (S4 == 0)
- 627          //  //  {
- 628          //  //  TR0 = ~TR0;
- 629          //  //  while (S4 == 0)
- 630          //  //  {
- 631          //  //      /* code */
- 632          //  //      DisplayTime();
- 633          //  //  }
- 634          //  //  }
- 635          //  // }
- 636          //  // if (S5 == 0)
- 637          //  // {
- 638          //  //  DelayK(100);
- 639          //  //  if (S5 == 0)
- 640          //  //  {
- 641          //  //  t_005s = 0;
- 642          //  //  t_s = 0;
- 643          //  //  t_m = 0;
- 644          //  //  while (S5 == 0)
- 645          //  //  {
- 646          //  //      /* code */
- 647          //  //      DisplayTime();
- 648          //  //  }
- 649          //  //  }
- 650          //  // }
- 651          //  if (S7 == 0)
- 652          //  {
- 653          //    DelayK(100);
- 654          //    if (S7 == 0)
- 655          //    {
- 656          //    switch (stat)
- 657          //    {
- 658          //    case /* constant-expression */ 0:
- 659          //        /* code */
- 660          //        L1 = 0;
- 661          //        TR0 = 1;
- 662          //        pwm_duty = 10;
- 663          //        stat = 1;
- 664          //        break;
- 665          //    case 1:
- 666          //        pwm_duty = 50;
- 667          //        stat = 2;
- 668          //        break;
- 669          //    case 2:
- 670          //        pwm_duty = 90;
- 671          //        stat = 3;
- 672          //        break;
- 673          
- 674          //    case 3:
-C51 COMPILER V9.60.0.0   MAIN                                                              03/03/2023 19:17:16 PAGE 12  
+ 620          void InitSystem()
+ 621          {
+ 622   1        // OutPutP0(5,0x00);
+ 623   1        // OutPutP0(5, 0x10);
+ 624   1        // delay_us(Sec_1);
+ 625   1        // OutPutP0(5, 0x00);
+ 626   1      
+ 627   1        // OutPutP0(5, 0x40);
+ 628   1        // delay_us(Sec_1);
+ 629   1        // OutPutP0(5, 0x00);
+ 630   1      
+ 631   1        // OutPutP0(4, 0xff);
+ 632   1      
+ 633   1        SelectHC573(5);
+ 634   1        P0 = 0x00;
+ 635   1        SelectHC573(4);
+ 636   1        P0 = 0xff;
+ 637   1      }
+ 638          
+ 639          void DisplayTime()
+ 640          {
+ 641   1        DisplaySMG_Bit(SMG_duanma[t_005s%10],7);
+ 642   1        DelaySMG(500);
+ 643   1        DisplaySMG_Bit(SMG_duanma[t_005s/10],6);
+ 644   1        DelaySMG(500);
+ 645   1        DisplaySMG_Bit(SMG_duanma[16],5);
+ 646   1        DelaySMG(500);
+ 647   1      
+ 648   1        DisplaySMG_Bit(SMG_duanma[t_s%10],4);
+ 649   1        DelaySMG(500);
+ 650   1        DisplaySMG_Bit(SMG_duanma[t_s/10],3);
+ 651   1        DelaySMG(500);
+ 652   1        DisplaySMG_Bit(SMG_duanma[16],2);
+ 653   1        DelaySMG(500);
+ 654   1      
+ 655   1        DisplaySMG_Bit(SMG_duanma[t_m],1);
+ 656   1        DelaySMG(500);
+ 657   1        DisplaySMG_Bit(SMG_duanma[t_m/10],0);
+ 658   1        DelaySMG(500);
+ 659   1      }
+ 660          
+ 661          
+ 662          unsigned char stat = 0;
+ 663          void ScanKeys()
+ 664          {
+ 665   1        // if (S4 == 0)
+ 666   1        // {
+ 667   1        //  DelayK(100);
+ 668   1        //  if (S4 == 0)
+ 669   1        //  {
+ 670   1        //  TR0 = ~TR0;
+ 671   1        //  while (S4 == 0)
+ 672   1        //  {
+ 673   1        //      /* code */
+C51 COMPILER V9.60.0.0   MAIN                                                              03/04/2023 11:13:57 PAGE 12  
 
- 675          //        L1 = 1;
- 676          //        TR0 = 0;
- 677          //        stat = 0;
- 678          //        break;
- 679          //    }
- 680          //    while (S7 == 0);
- 681          //    }
- 682          //  }
- 683          // }
- 684          
- 685          // void main()
- 686          // {
- 687          //  InitSystem();
- 688          //  SelectHC573(4);
- 689          //  L1 = 1;
- 690          //  //Init_INT0();
- 691          //  Init_Timer0();
- 692          //  while(1)
- 693          //  { 
- 694          //    //LED_Running();
- 695          //    //SMG_Static();   
- 696          //    // Display_Dynamic();
- 697          //    // yu++;
- 698          //    // if (yu > 12)
- 699          //    // {
- 700          //    //  yu = 1;
- 701          //    // }
- 702          //    // Delay(200);
- 703          //    // ScanKeys_Alone();
- 704          //    // ScanKeys_Alone_2();
- 705          //    // ScanKeysMulti();
- 706          //    // LED1_Working();
- 707          //    // LEDINT();
- 708          //    //DisplayTime();
- 709          //    ScanKeys();
- 710          //  }
- 711          // }
- 712          
- 713          #include "reg52.H"
- 714          #include "intrins.h"
- 715          //ledÊý¾ÝÓÉp0->hct575-¡·le¸ßÓÐÐ§-¡·p25p26p27Ñ¡ÖÐ£¨y0¿ªÊ¼£©y4-¡·»ò·Ç£¨74hc02£©¸øle
- 716          //leÀ­¸ßºóÀ­µÍÏÔÊ¾,led½ÓµÍÁÁ
- 717          #define p2 P2
- 718          #define p0 P0
- 719          #define p1 P1
- 720          #define p3 P3
- 721          #define p4 P4
- 722          #define uint_8 unsigned char
- 723          sbit s7=P3^0;
- 724          sbit s6=P3^1;
- 725          sbit s5=P3^2;
- 726          sbit s4=P3^3;
- 727          // sbit scan1=p4^4;
- 728          // sbit scan2=p4^2;
- 729          sbit scan3=p3^5;
- 730          sbit scan4=p3^4;
- 731          sbit sx1=p3^0;
- 732          sbit sx2=p3^1;
- 733          sbit sx3=p3^2;
- 734          sbit sx4=p3^3;
- 735          
- 736          unsigned char count=4;
-C51 COMPILER V9.60.0.0   MAIN                                                              03/03/2023 19:17:16 PAGE 13  
+ 674   1        //      DisplayTime();
+ 675   1        //  }
+ 676   1        //  }
+ 677   1        // }
+ 678   1        // if (S5 == 0)
+ 679   1        // {
+ 680   1        //  DelayK(100);
+ 681   1        //  if (S5 == 0)
+ 682   1        //  {
+ 683   1        //  t_005s = 0;
+ 684   1        //  t_s = 0;
+ 685   1        //  t_m = 0;
+ 686   1        //  while (S5 == 0)
+ 687   1        //  {
+ 688   1        //      /* code */
+ 689   1        //      DisplayTime();
+ 690   1        //  }
+ 691   1        //  }
+ 692   1        // }
+ 693   1        if (S7 == 0)
+ 694   1        {
+ 695   2          DelayK(100);
+ 696   2          if (S7 == 0)
+ 697   2          {
+ 698   3          switch (stat)
+ 699   3          {
+ 700   4          case /* constant-expression */ 0:
+ 701   4              /* code */
+ 702   4              L1 = 0;
+ 703   4              TR0 = 1;
+ 704   4              pwm_duty = 10;
+ 705   4              stat = 1;
+ 706   4              break;
+ 707   4          case 1:
+ 708   4              pwm_duty = 50;
+ 709   4              stat = 2;
+ 710   4              break;
+ 711   4          case 2:
+ 712   4              pwm_duty = 90;
+ 713   4              stat = 3;
+ 714   4              break;
+ 715   4      
+ 716   4          case 3:
+ 717   4              L1 = 1;
+ 718   4              TR0 = 0;
+ 719   4              stat = 0;
+ 720   4              break;
+ 721   4          }
+ 722   3          while (S7 == 0);
+ 723   3          }
+ 724   2        }
+ 725   1      }
+ 726          
+ 727          void main()
+ 728          {
+ 729   1        InitSystem();
+ 730   1        // SelectHC573(4);
+ 731   1        // L1 = 1;
+ 732   1        //Init_INT0();
+ 733   1        //Init_Timer0();
+ 734   1        InitUart();
+ 735   1        SendString("Welcome to ...\r\n");
+C51 COMPILER V9.60.0.0   MAIN                                                              03/04/2023 11:13:57 PAGE 13  
 
- 737          //ÑÓÊ±200ms
- 738          void delay(char x)    //@11.0592MHz
- 739          {
- 740   1        unsigned char i, j, k;
- 741   1        _nop_();
- 742   1        _nop_();
- 743   1        i = x;//9
- 744   1        j = 104;
- 745   1        k = 139;
- 746   1        do
- 747   1        {
- 748   2          do
- 749   2          {
- 750   3            while (--k);
- 751   3          } while (--j);
- 752   2        } while (--i);
- 753   1      }
- 754          int scan(){
- 755   1      //  uint_8 x,y,keys;
- 756   1      //  scan1=0;scan2=0;scan3=0;scan4=0;
- 757   1      //  keys=p3&0x0f;
- 758   1        
- 759   1        
- 760   1      }
- 761          void main()
- 762          { 
- 763   1        unsigned char i=0,i2=0;int i3=0;
- 764   1        //timer
- 765   1        // AUXR|=0X80;
- 766   1        TMOD&=0XF1;
- 767   1        TL0=(65535-60000)%256;
- 768   1        TH0=(65535-60000)/256;
- 769   1        EA=1;
- 770   1        ET0=1;
- 771   1        TR0=1;
- 772   1      
- 773   1      
- 774   1        while(1)
- 775   1        {
- 776   2          //led flash
- 777   2          /*
- 778   2          P2=(P2&0X1F)|(0X80);//Ñ¡ÖÐ138µÄy4-¡·»ò·Ç-¡·le¸ß
- 779   2          P0=0xf0;
- 780   2          P2 &= 0x1f;//À­µÍÏÔÊ¾
- 781   2          delay();
- 782   2            
- 783   2          P2=(P2&0X1F)|(0X80);
- 784   2          P0=0xff;
- 785   2          P2&=0X1F;
- 786   2          delay();*/
- 787   2          // water light
- 788   2           /* for(i3=8;i3>=0;i3--)
- 789   2          {
- 790   2            p2=(p2&0x1f)|0x80;
- 791   2            p0=~(1<<i3);
- 792   2            p2&=0x1f;
- 793   2            delay();
- 794   2          }  */
- 795   2          //key alone
- 796   2          /* if(s7==0){
- 797   2            p2=(p2&0x1f)|0x80;
- 798   2            p0=0;
-C51 COMPILER V9.60.0.0   MAIN                                                              03/03/2023 19:17:16 PAGE 14  
-
- 799   2            p2&=0x1f;
- 800   2          }
- 801   2          if(s6==0){
- 802   2            p2=(p2&0x1f)|0x80;
- 803   2            p0=0xff;
- 804   2            p2&=0x1f;
- 805   2          } */
- 806   2          //key scan
- 807   2          /* sx1=1;sx2=1;sx3=1;sx4=1; */
- 808   2          //shumaguan
- 809   2          /* p2=(p2&0x1f)|0xe0;//y7ÊýÂë¹Ü1,
- 810   2          p0=0x44;//¶ÎÑ¡
- 811   2          p2&=0x1f;
- 812   2          p2=(p2&0x1f)|0xc0;//y6ÊýÂë¹Ücom
- 813   2          p0=0x44;//Î»Ñ¡
- 814   2          p2&=0x1f;
- 815   2          // delay(2); */
- 816   2          //timer
- 817   2      
- 818   2          
- 819   2        }
- 820   1      }
- 821          void tim0() interrupt 1{
- 822   1        TL0=(65535-60000)%256;
- 823   1        TH0=(65535-60000)/256;
- 824   1      
- 825   1        P2=(P2&0X1F)|(0X80);//Ñ¡ÖÐ138µÄy4-¡·»ò·Ç-¡·le¸ß
- 826   1        P0=0xf0;
- 827   1        P2 &= 0x1f;//À­µÍÏÔÊ¾
- 828   1        delay(1);
- 829   1        P2=(P2&0X1F)|(0X80);
- 830   1        P0=0xff;
- 831   1        P2&=0X1F;
- 832   1        
- 833   1        
- 834   1        
- 835   1        
- 836   1      }
-*** WARNING C290 IN LINE 760 OF main.c: missing return value
+ 736   1        while(1)
+ 737   1        { 
+ 738   2          //LED_Running();
+ 739   2          //SMG_Static();   
+ 740   2          // Display_Dynamic();
+ 741   2          // yu++;
+ 742   2          // if (yu > 12)
+ 743   2          // {
+ 744   2          //  yu = 1;
+ 745   2          // }
+ 746   2          // Delay(200);
+ 747   2          // ScanKeys_Alone();
+ 748   2          // ScanKeys_Alone_2();
+ 749   2          // ScanKeysMulti();
+ 750   2          // LED1_Working();
+ 751   2          // LEDINT();
+ 752   2          //DisplayTime();
+ 753   2          //ScanKeys();
+ 754   2          Working();
+ 755   2        }
+ 756   1      }
 
 
 MODULE INFORMATION:   STATIC OVERLAYABLE
-   CODE SIZE        =    103    ----
-   CONSTANT SIZE    =   ----    ----
+   CODE SIZE        =   1377    ----
+   CONSTANT SIZE    =     62    ----
    XDATA SIZE       =   ----    ----
    PDATA SIZE       =   ----    ----
-   DATA SIZE        =      1       4
+   DATA SIZE        =     12       4
    IDATA SIZE       =   ----    ----
    BIT SIZE         =   ----    ----
 END OF MODULE INFORMATION.

@@ -124,13 +124,14 @@ void InitUart()
 	EA	 = 1;
 }
 
+
+unsigned char command = 0x00;
 void ServiceUart() interrupt 4
 {
 	if (RI == 1)
 	{
+		command = SBUF;
 		RI = 0;
-		urdat = SBUF;
-		SendByte(urdat + 1);
 	}
 }
 
@@ -139,6 +140,40 @@ void SendByte(unsigned char dat)
 	SBUF = dat;
 	while(TI == 0);
 	TI = 0;
+}
+
+void SendString(unsigned char *str)
+{
+	while (*str != '\0')
+	{
+		/* code */
+		SendByte(*str++);
+	}
+	
+}
+
+void Working()
+{
+	if(command != 0x00)
+	{
+		switch(command & 0xf0)
+		{
+			case 0xa0:
+				P0 = (P0 | 0x0f) & (~command | 0xf0);
+				command = 0x00;
+			break;
+			
+			case 0xb0:
+				P0 = (P0 | 0xf0) & ((~command << 4)| 0x0f);
+				command = 0x00;
+			break;
+			
+			case 0xc0:
+				SendString("The System is Running...\r\n");
+				command = 0x00;
+			break;
+		}
+	}
 }
 
 unsigned char count = 0;
@@ -218,11 +253,11 @@ void LEDINT()
 	stat_int = 0;
 }
 
-// void OutPutP0(unsigned char channel, unsigned char dat)
-// {
-// 	InitHC138(channel);
-// 	P0 = dat;
-// }
+void OutPutP0(unsigned char channel, unsigned char dat)
+{
+	//InitHC138(channel);
+	P0 = dat;
+}
 
 void DisplaySMG_Bit(unsigned char value, unsigned pos)
 {
@@ -236,9 +271,9 @@ void DisplaySMG_Bit(unsigned char value, unsigned pos)
 // void ShowSMG_Bit(unsigned char dat, unsigned pos)
 // {
 // 	InitHC138(6);
-// 	P0 = 0x01 << pos;		//ï¿½ï¿½ï¿½ï¿½ï¿½Î»ï¿½ï¿½? 
+// 	P0 = 0x01 << pos;		//ï¿½ï¿½ï¿½ï¿½ï¿½Î»ï¿½ï¿?? 
 // 	InitHC138(7);
-// 	P0 = dat;				//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½?
+// 	P0 = dat;				//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿??
 // }
 
 void DisplayKeyNum(unsigned char value)
@@ -584,16 +619,21 @@ void ScanKeysMulti()
 
 void InitSystem()
 {
-	OutPutP0(5,0x00);
-	OutPutP0(5, 0x10);
-	delay_us(Sec_1);
-	OutPutP0(5, 0x00);
+	// OutPutP0(5,0x00);
+	// OutPutP0(5, 0x10);
+	// delay_us(Sec_1);
+	// OutPutP0(5, 0x00);
 
-	OutPutP0(5, 0x40);
-	delay_us(Sec_1);
-	OutPutP0(5, 0x00);
+	// OutPutP0(5, 0x40);
+	// delay_us(Sec_1);
+	// OutPutP0(5, 0x00);
 
-	OutPutP0(4, 0xff);
+	// OutPutP0(4, 0xff);
+
+	SelectHC573(5);
+	P0 = 0x00;
+	SelectHC573(4);
+	P0 = 0xff;
 }
 
 void DisplayTime()
@@ -692,8 +732,7 @@ void main()
 	//Init_INT0();
 	//Init_Timer0();
 	InitUart();
-	SendByte(0x5a);
-	SendByte(0xa5);
+	SendString("Welcome to ...\r\n");
 	while(1)
 	{	
 		//LED_Running();
@@ -712,6 +751,6 @@ void main()
 		// LEDINT();
 		//DisplayTime();
 		//ScanKeys();
-		SendByte(0x11);
+		Working();
 	}
 }
