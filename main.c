@@ -133,14 +133,16 @@ void SendByte(unsigned char dat);
 
 void InitUart()
 {
+	TMOD = 0x20;
+	TH1  = 0xfd;
+	TL1  = 0xfd;
+	TR1  = 1;
+
 	SCON = 0x50;
-	AUXR &= 0xBF;
-	AUXR &= 0xFE;
-	TMOD &= 0x0F;
-	TL1  =  0xE8;
-	TH1  =  0xFF;
-	ET1  =  0;
-	TR1  =  1;
+	AUXR = 0x00;
+
+	ES   = 1;
+	EA	 = 1;
 }
 
 void ServiceUart() interrupt 4
@@ -255,9 +257,9 @@ void DisplaySMG_Bit(unsigned char value, unsigned pos)
 void ShowSMG_Bit(unsigned char dat, unsigned pos)
 {
 	InitHC138(6);
-	P0 = 0x01 << pos;		//ï¿½ï¿½ï¿½ï¿½ï¿½Î»ï¿½ï¿½ 
+	P0 = 0x01 << pos;		//ï¿½ï¿½ï¿½ï¿½ï¿½Î»ï¿½ï¿? 
 	InitHC138(7);
-	P0 = dat;				//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+	P0 = dat;				//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿?
 }
 
 void DisplayKeyNum(unsigned char value)

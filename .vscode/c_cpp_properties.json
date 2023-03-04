@@ -5,7 +5,8 @@
             "includePath": [
                 "g:\\LanqiaoCup\\Training\\3-底层驱动代码参考",
                 "E:\\Keil_v5_C51\\C51\\INC",
-                "g:\\LanqiaoCup\\Training"
+                "g:\\LanqiaoCup\\Training",
+                "${workspaceFolder}"
             ],
             "defines": [
                 "__C51__",
