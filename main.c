@@ -133,10 +133,31 @@ void SendByte(unsigned char dat);
 
 void InitUart()
 {
-	TMOD = 0x20;
-	TH1  = 0xfd;
-	TL1  = 0xfd;
-	TR1  = 1; 
+	SCON = 0x50;
+	AUXR &= 0xBF;
+	AUXR &= 0xFE;
+	TMOD &= 0x0F;
+	TL1  =  0xE8;
+	TH1  =  0xFF;
+	ET1  =  0;
+	TR1  =  1;
+}
+
+void ServiceUart() interrupt 4
+{
+	if (RI == 1)
+	{
+		RI = 0;
+		urdat = SBUF;
+		SendByte(urdat + 1);
+	}
+}
+
+void SendByte(unsigned char dat)
+{
+	SBUF = dat;
+	while(TI == 0);
+	TI = 0;
 }
 
 unsigned char count = 0;
@@ -684,11 +705,14 @@ void ScanKeys()
 
 void main()
 {
-	InitSystem();
-	SelectHC573(4);
-	L1 = 1;
+	// InitSystem();
+	// SelectHC573(4);
+	// L1 = 1;
 	//Init_INT0();
-	Init_Timer0();
+	//Init_Timer0();
+	InitUart();
+	SendByte(0x5a);
+	SendByte(0xa5);
 	while(1)
 	{	
 		//LED_Running();
