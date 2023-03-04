@@ -71,27 +71,6 @@ void DelayK(unsigned int t)
 	
 }
 
-void InitHC138(unsigned char n)
-{
-	switch (n)
-	{
-	case 4:
-		/* code */
-		P2 = (P2 & 0x1f) | 0x80;
-		break;
-	case 5:
-		P2 = (P2 & 0x1f) | 0xa0;
-		break;
-
-	case 6:
-		P2 = (P2 & 0x1f) | 0xc0;
-		break;;
-
-	case 7:
-		P2 = (P2 & 0x1f) | 0xe0;
-		break;	
-	}
-}
 void SelectHC573(unsigned char channel)
 {
 	switch (channel)
@@ -257,9 +236,9 @@ void DisplaySMG_Bit(unsigned char value, unsigned pos)
 void ShowSMG_Bit(unsigned char dat, unsigned pos)
 {
 	InitHC138(6);
-	P0 = 0x01 << pos;		//ï¿½ï¿½ï¿½ï¿½ï¿½Î»ï¿½ï¿? 
+	P0 = 0x01 << pos;		//ï¿½ï¿½ï¿½ï¿½ï¿½Î»ï¿½ï¿½? 
 	InitHC138(7);
-	P0 = dat;				//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿?
+	P0 = dat;				//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½?
 }
 
 void DisplayKeyNum(unsigned char value)
@@ -707,7 +686,7 @@ void ScanKeys()
 
 void main()
 {
-	// InitSystem();
+	InitSystem();
 	// SelectHC573(4);
 	// L1 = 1;
 	//Init_INT0();
@@ -733,5 +712,6 @@ void main()
 		// LEDINT();
 		//DisplayTime();
 		//ScanKeys();
+		SendByte(0x11);
 	}
 }
