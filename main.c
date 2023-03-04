@@ -113,9 +113,9 @@ void SelectHC573(unsigned char channel)
 }
 void Init_INT0()
 {
-	IT0 = 1;	//Íâ²¿ÖÐ¶ÏÏÂ½µÑØ´¥·¢
-	EX0 = 1;	//¿ªÆôÍâ²¿ÖÐ¶Ï0
-	EA  = 1;	//¿ªÆôÖÐ¶Ï×Ü¿ª¹Ø
+	IT0 = 1;	//ï¿½â²¿ï¿½Ð¶ï¿½ï¿½Â½ï¿½ï¿½Ø´ï¿½ï¿½ï¿½
+	EX0 = 1;	//ï¿½ï¿½ï¿½ï¿½ï¿½â²¿ï¿½Ð¶ï¿½0
+	EA  = 1;	//ï¿½ï¿½ï¿½ï¿½ï¿½Ð¶ï¿½ï¿½Ü¿ï¿½ï¿½ï¿½
 }
 
 void Init_Timer0()
@@ -124,9 +124,9 @@ void Init_Timer0()
 	TH0  = (65535 - 100) / 256;
 	TL0  = (65535 - 100) % 256;
 
-	ET0  = 1;	//¿ªÆô¶¨Ê±Æ÷0ÖÐ¶Ï
-	EA   = 1;	//¿ªÆôÈ«²¿ÖÐ¶Ï
-	//TR0  = 1;	//Æô¶¯¶¨Ê±Æ÷
+	ET0  = 1;	//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ê±ï¿½ï¿½0ï¿½Ð¶ï¿½
+	EA   = 1;	//ï¿½ï¿½ï¿½ï¿½È«ï¿½ï¿½ï¿½Ð¶ï¿½
+	//TR0  = 1;	//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ê±ï¿½ï¿½
 }
 
 void SendByte(unsigned char dat);
@@ -234,9 +234,9 @@ void DisplaySMG_Bit(unsigned char value, unsigned pos)
 void ShowSMG_Bit(unsigned char dat, unsigned pos)
 {
 	InitHC138(6);
-	P0 = 0x01 << pos;		//ÊýÂë¹ÜÎ»ÖÃ 
+	P0 = 0x01 << pos;		//ï¿½ï¿½ï¿½ï¿½ï¿½Î»ï¿½ï¿½ 
 	InitHC138(7);
-	P0 = dat;				//ÊýÂë¹ÜÄÚÈÝ
+	P0 = dat;				//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 }
 
 void DisplayKeyNum(unsigned char value)
@@ -706,6 +706,6 @@ void main()
 		// LED1_Working();
 		// LEDINT();
 		//DisplayTime();
-		ScanKeys();
+		//ScanKeys();
 	}
 }
