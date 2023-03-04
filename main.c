@@ -218,7 +218,11 @@ void LEDINT()
 	stat_int = 0;
 }
 
-
+// void OutPutP0(unsigned char channel, unsigned char dat)
+// {
+// 	InitHC138(channel);
+// 	P0 = dat;
+// }
 
 void DisplaySMG_Bit(unsigned char value, unsigned pos)
 {
@@ -229,13 +233,13 @@ void DisplaySMG_Bit(unsigned char value, unsigned pos)
 	P0 = value;
 }
 
-void ShowSMG_Bit(unsigned char dat, unsigned pos)
-{
-	InitHC138(6);
-	P0 = 0x01 << pos;		//�����λ��? 
-	InitHC138(7);
-	P0 = dat;				//���������?
-}
+// void ShowSMG_Bit(unsigned char dat, unsigned pos)
+// {
+// 	InitHC138(6);
+// 	P0 = 0x01 << pos;		//�����λ��? 
+// 	InitHC138(7);
+// 	P0 = dat;				//���������?
+// }
 
 void DisplayKeyNum(unsigned char value)
 {
@@ -246,26 +250,26 @@ void DisplayKeyNum(unsigned char value)
 	P0 = value;
 }
 
-void SMG_Static()
-{
-	unsigned char i,j;
-	for (i = 0; i<8; i++)
-	{
-		for (j = 0; j < 10; j++)
-		{
-			ShowSMG_Bit(SMG_duanma[i],i);
-			delay_us(HalfSec_1);
-		}
-	}
-	for (j = 0; j < 16; j++)
-	{
-		InitHC138(6);
-		P0 = 0xff;
-		InitHC138(7);
-		P0 = SMG_duanma[j];
-		delay_us(Sec_1);
-	}
-}
+// void SMG_Static()
+// {
+// 	unsigned char i,j;
+// 	for (i = 0; i<8; i++)
+// 	{
+// 		for (j = 0; j < 10; j++)
+// 		{
+// 			ShowSMG_Bit(SMG_duanma[i],i);
+// 			delay_us(HalfSec_1);
+// 		}
+// 	}
+// 	for (j = 0; j < 16; j++)
+// 	{
+// 		InitHC138(6);
+// 		P0 = 0xff;
+// 		InitHC138(7);
+// 		P0 = SMG_duanma[j];
+// 		delay_us(Sec_1);
+// 	}
+// }
 
 void Display_Dynamic()
 {
@@ -449,7 +453,7 @@ void LED_Running(void)
 	delay_us(Sec_1);
 	OutPutP0(5, 0x00);
 
-	InitHC138(4);
+	//InitHC138(4);
 	for (i = 1; i <= 8; i++)
 	{
 		//P0 = ~(0xff << i);
